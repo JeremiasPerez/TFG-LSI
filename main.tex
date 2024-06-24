@@ -1,0 +1,90 @@
+\documentclass[a4paper, 11pt]{memoir}
+\semiisopage % define el tamaño/disposición del contenido respecto a la página. 
+% Más info en: https://ctan.javinator9889.com/macros/latex/contrib/memoir/memman.pdf#section.2.11
+\chapterstyle{ger} % define el estilo de la cabecera de los capítulos
+% Otros estilos en https://ctan.javinator9889.com/macros/latex/contrib/memoir/memman.pdf#section.B.1
+
+\input information
+\input config/macros
+\input chapters/glossary
+\input chapters/acronyms
+
+\title{\titulo}
+\author{\alumno}
+\date{\fecha}
+
+\begin{document}
+	
+\input config/cover_eivg
+
+\cleardoublepage
+\frontmatter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% AGRADECIMIENTOS / ESKER ONAK %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{Agradecimientos / Esker onak}
+\input chapters/acknowledgements
+\cleardoublepage
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% RESUMEN / LABURPENA %
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{Resumen / Laburpena}
+\input chapters/abstract
+\cleardoublepage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ÍNDICES / EDUKIEN ZERRENDA %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tableofcontents
+\clearpage
+\listoffigures
+\clearpage
+\listoftables
+\clearpage
+{\let\newpage\relax\listofalgorithms} % Lista de algoritmos
+\clearpage
+{\let\newpage\relax\printglossary[title=\glossarylabel]} % Glosario
+\clearpage
+{\let\newpage\relax\printglossary[title=\acronymslabel,type=\acronymtype]} % Acrónimos
+\clearpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+% CONTENIDO / EDUKIA %
+%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+\mainmatter
+\pagestyle{ruled}
+
+\chapter{Uso de la plantilla} \label{ch:plantilla}
+\input chapters/chap1
+\cleardoublepage
+
+\chapter{Txantiloiaren erabilera} \label{ch:txantiloia}
+\input chapters/chap2
+\cleardoublepage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% APÉNDICES / ERANSKINAK %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\backmatter
+\appendix
+
+\chapter{Apéndice / Eranskina} \label{ch:apendice}
+\input chapters/appendix
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% REFERENCIAS / ERREFERENTZIAK %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+\end{document}
